@@ -1,3 +1,5 @@
+// Based off of the juce example code
+
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
@@ -69,6 +71,7 @@ void GreaterThanAudioProcessorEditor::paint (Graphics& g)
     g.setFont(Font("coolvetica", 40.0f, 0));
     g.drawFittedText("GREATER > THAN", 0, 2, getWidth(), 30, Justification::centred, 1);
 
+    // draw parameter text on bottom of the screen
     g.setFont(40.0f);
     g.drawFittedText("WET",  0,                 getHeight() - 35, getWidth() / 4, 30, Justification::centred, 1);
     g.drawFittedText("DRY",  getWidth() * 0.25, getHeight() - 35, getWidth() / 4, 30, Justification::centred, 1);
@@ -88,6 +91,7 @@ void GreaterThanAudioProcessorEditor::resized()
 
 void GreaterThanAudioProcessorEditor::sliderValueChanged(Slider* slider)
 {
+    // here we send the slider values to the audioProcessor if they are a new value
     if (*processor.wet != wet.getValue())
     {
         *processor.wet = wet.getValue();

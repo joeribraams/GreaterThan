@@ -1,3 +1,5 @@
+// Based off of the juce example code
+
 #pragma once
 
 #include <JuceHeader.h>
@@ -16,6 +18,7 @@ public:
     bool isBusesLayoutSupported (const BusesLayout& layouts) const override;
    #endif
 
+    // Here we do the actual audio processing
     void processBlock (AudioBuffer<float>&, MidiBuffer&) override;
 
     AudioProcessorEditor* createEditor() override;
@@ -34,13 +37,9 @@ public:
     const String getProgramName (int index) override;
     void changeProgramName (int index, const String& newName) override;
 
+    // Here we save and open the status information between sessions
     void getStateInformation (MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
-
-    /*double wet = 0.1;
-    double dry = 1.0;
-    double gate = 0.2;
-    double oct = 0.0;*/
 
     AudioParameterFloat* wet;
     AudioParameterFloat* dry;
@@ -48,9 +47,6 @@ public:
     AudioParameterFloat* oct;
 
 private:
-
-    //AudioProcessorValueTreeState parameters;
-
     double input = 0.0;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (GreaterThanAudioProcessor)

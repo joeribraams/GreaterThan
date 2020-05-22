@@ -1,3 +1,5 @@
+// Based off of the juce example code
+
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
@@ -13,6 +15,7 @@ GreaterThanAudioProcessor::GreaterThanAudioProcessor()
                        )
 #endif
 {
+    // init parameters with starting values, will be overwritten if instance has been opened before
     addParameter(wet  = new AudioParameterFloat("wet",  "Wet",  0.0f, 1.0f, 0.1f));
     addParameter(dry  = new AudioParameterFloat("dry",  "Dry",  0.0f, 1.0f, 1.0f));
     addParameter(gate = new AudioParameterFloat("gate", "Gate", 0.0f, 0.5f, 0.2f));
@@ -152,7 +155,9 @@ void GreaterThanAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBu
         // ..do something to the data...
         for (int sample = 0; sample < buffer.getNumSamples(); sample++)
         {
+            // add the octave up to the input signal
             input = (1 - *oct) * inBuffer[sample] + *oct * abs(inBuffer[sample]);
+            // Do the comparisor and add dry signal
             outBuffer[sample] = (input > *gate) * *wet  + inBuffer[sample] * *dry;
         }
     }
