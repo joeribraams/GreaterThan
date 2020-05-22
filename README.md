@@ -6,6 +6,9 @@ As minimalist as it’s looks and function are, as huge is it’s sound. The gat
 
 Great as a fuzz on guitars, try the octave up high with the neck pickup selected, or bass with the dry blend control. Or try it on drums with the gate high for pokey blips of noise, or turn the gate down and let it blow up your room mics through the roof. It can work great as a vocal distortion, especially if you don’t want it to sound like a vocal. Put it on a master buss if you're feeling brave or if OTT just doesn't cut if for you anymore.
 
+# Demo:
+https://www.youtube.com/watch?v=Gn2Jy7CU24w&feature=youtu.be
+
 # Great for:
 * Noise artists
 * Djentlemen
